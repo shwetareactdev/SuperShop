@@ -1,0 +1,151 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .dashboard-layout {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar-wrapper {
+    width: 250px;
+    background-color: #222;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    padding-top: 20px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  
+  .sidebar-wrapper .sidebar {
+    padding: 0 10px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 12px 20px;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+  }
+  
+  .sidebar ul li:hover {
+    background: #333;
+    color: #00bfff;
+  }
+  
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .sidebar .logo {
+    text-align: center;
+    color: red;
+    margin-bottom: 20px;
+  }
+  
+  /* Dropdown */
+  .dropdown {
+    background: #333;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  .dropdown li {
+    padding: 10px 20px;
+    border-top: 1px solid #444;
+  }
+  
+  .dropdown li:hover {
+    background-color: #444;
+  }
+  
+  /* Dashboard Content */
+  .dashboard-content {
+    flex-grow: 1;
+    margin-left: 250px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    height: 100vh;
+    overflow-y: auto;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  /* Sidebar Toggle Button */
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #222;
+    border: none;
+    color: white;
+    font-size: 24px;
+    z-index: 1100;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  /* Stats Cards */
+  .stats-container {
+    display: flex;
+    gap: 15px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  
+  .stats-container > div {
+    flex: 1;
+    min-width: 250px;
+    max-width: 400px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .sidebar-wrapper {
+      transform: translateX(-100%);
+      position: fixed;
+    }
+  
+    .sidebar-wrapper.open {
+      transform: translateX(0);
+    }
+  
+    .dashboard-content {
+      margin-left: 0;
+    }
+  
+    .sidebar-toggle {
+      display: block;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+  
