@@ -1,0 +1,47 @@
+inventory-management/
+│── backend/                     # Server-Side Code (Node.js + Express + MongoDB)
+│   ├── models/                   # Database Models (Mongoose Schemas)
+│   │   ├── User.js                # Admin Model
+│   │   ├── Product.js             # Product Schema
+│   │   ├── Invoice.js             # Invoice Schema
+│   ├── routes/                    # API Routes
+│   │   ├── authRoutes.js          # Admin Authentication Routes
+│   │   ├── productRoutes.js       # Product Management Routes
+│   │   ├── invoiceRoutes.js       # Invoice Routes
+│   ├── middleware/                # Middleware Functions
+│   │   ├── authMiddleware.js      # Protect Routes (JWT Authentication)
+│   ├── config/                    # Configurations
+│   │   ├── db.js                  # MongoDB Connection
+│   ├── server.js                   # Main Server File
+│   ├── package.json                # Backend Dependencies
+│
+│── frontend/                      # Client-Side Code (React.js)
+│   ├── src/
+│   │   ├── components/             # Reusable Components
+│   │   │   ├── Navbar.js           
+│   │   │   ├── Sidebar.js           
+│   │   │   ├── ProductForm.js      
+│   │   │   ├── InvoiceForm.js      
+│   │   ├── pages/                  # Page Components
+│   │   │   ├── Dashboard.js        
+│   │   │   ├── Login.js            
+│   │   │   ├── Products.js         
+│   │   │   ├── Invoices.js         
+│   │   ├── context/                 # State Management (Context API)
+│   │   ├── App.js                   
+│   │   ├── index.js                 
+│   ├── public/                      
+│   ├── package.json                 # Frontend Dependencies
+│
+│── .env                            # Environment Variables
+│── README.md                        # Project Documentation
+
+
+
+navbar 
+Dashboard ----- sale report 
+          ----- stats product ,purchase amt , selling amt ,profit and loss , stock amt
+          ----- top selling products , stock available 
+          ----- notifications for reducing stocks 
+
+Manage Products ------ Add Products button ,search product ,Product List show with edit and delete options , decinding date, 
