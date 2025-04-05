@@ -18,8 +18,14 @@ const Login = () => {
     e.preventDefault();
 
     try {
-        const { data } = await axios.post("http://localhost:5000/api/admin/login", { email, password });
-
+        // const { data } = await axios.post("http://localhost:5000/api/admin/login", { email, password });
+        const { data } = await axios.post(
+          `${process.env.REACT_APP_API_URL}/api/admin/login`,
+          { email, password }
+        );
+        
+        
+        
         localStorage.setItem("authToken", data.token); // Store correct token
         window.location.href = "/"; // Redirect to dashboard
     } catch (error) {
