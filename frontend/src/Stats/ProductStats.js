@@ -11,10 +11,12 @@ const ProductStats = () => {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const productRes = await axios.get("http://localhost:5000/api/products/count");
+                // const productRes = await axios.get("http://localhost:5000/api/products/count");
+                const productRes = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/count`);
                 setTotalProducts(productRes.data.total);
 
-                const invoiceRes = await axios.get("http://localhost:5000/api/invoices/count");
+                // const invoiceRes = await axios.get("http://localhost:5000/api/invoices/count");
+                const invoiceRes = await axios.get(`${process.env.REACT_APP_API_URL}/api/invoices/count`);
                 setTotalInvoices(invoiceRes.data.total);
             } catch (error) {
                 console.error("Error fetching stats:", error);

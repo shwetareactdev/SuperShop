@@ -18,7 +18,9 @@ const ProductForm = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/products/categories");
+                // const response = await axios.get("http://localhost:5000/api/products/categories");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/categories`);
+
                 if (response.data.length > 0) {
                     console.log("Fetched Categories:", response.data); // ✅ Debugging
                     setCategories(response.data);
@@ -63,7 +65,9 @@ const ProductForm = () => {
 
         try {
             const token = localStorage.getItem("token");
-            await axios.post("http://localhost:5000/api/products/add", productData, {
+            // await axios.post("http://localhost:5000/api/products/add", productData, {
+                await axios.post(`${process.env.REACT_APP_API_URL}/api/products/add`, productData, {
+                    headers: { "Content-Type": "application/json" },
                 headers: { Authorization: `Bearer ${token}` },
             });
 

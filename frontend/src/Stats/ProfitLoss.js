@@ -73,7 +73,8 @@ const ProfitLoss = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/invoices/profit-loss")
+        // axios.get("http://localhost:5000/api/invoices/profit-loss")
+        axios.get(`${process.env.REACT_APP_API_URL}/api/invoices/profit-loss`)
             .then((res) => {
                 setReport(res.data);
                 setLoading(false);

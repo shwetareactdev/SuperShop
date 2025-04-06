@@ -20,7 +20,8 @@ const InvoiceForm = () => {
     const firmAddress = "123, Main Street, City, State - 123456";
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/products/available")
+        // axios.get("http://localhost:5000/api/products/available")
+        axios.get(`${process.env.REACT_APP_API_URL}/api/products/available`)
             .then(res => setAvailableProducts(res.data))
             .catch(err => console.error("Error fetching products:", err));
     }, []);
@@ -29,7 +30,8 @@ const InvoiceForm = () => {
         if (query.length > 1) {
             const fetchSuggestions = async () => {
                 try {
-                    const res = await axios.get(`http://localhost:5000/api/products/search?q=${query}`);
+                    // const res = await axios.get(`http://localhost:5000/api/products/search?q=${query}`);
+                    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/search?q=${query}`);
                     setSuggestions(res.data.length > 0 ? res.data : [{ name: "Not available in our store" }]);
                 } catch (err) {
                     console.error("Error fetching suggestions:", err);
@@ -130,7 +132,8 @@ const InvoiceForm = () => {
         console.log("🔍 Total Amount:", totalAmount);
 
         try {
-            const res = await axios.post("http://localhost:5000/api/invoices/create", invoiceData, {
+            // const res = await axios.post("http://localhost:5000/api/invoices/create", invoiceData, {
+                const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/invoices/create`, invoiceData, {
                 headers: { "Content-Type": "application/json" },
             });
 
@@ -220,7 +223,8 @@ const InvoiceForm = () => {
                 {invoiceId && (
   <button
     onClick={() =>
-        window.open(`http://localhost:5000/api/invoices/download/${invoiceId}`, "_blank")
+      //  window.open(`http://localhost:5000/api/invoices/download/${invoiceId}`, "_blank")
+      window.open(`${process.env.REACT_APP_API_URL}/api/invoices/download/${invoiceId}`, "_blank")
     }
     style={{
         backgroundColor: "#007bff",

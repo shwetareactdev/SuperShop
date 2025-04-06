@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import axios from "axios";
 
-const socket = io("http://localhost:5000");
+// const socket = io("http://localhost:5000");
+const socket = io(`${process.env.REACT_APP_API_URL}`);
 
 const StockUpdate = () => {
     const [products, setProducts] = useState([]);
@@ -11,7 +12,8 @@ const StockUpdate = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/products");
+                // const res = await axios.get("http://localhost:5000/api/products");
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products`);
                 console.log("📡 Products Data:", res.data);
                 setProducts(res.data.products || []);
             } catch (error) {

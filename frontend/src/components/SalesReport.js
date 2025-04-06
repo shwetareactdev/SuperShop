@@ -8,7 +8,8 @@ const SalesReport = () => {
     useEffect(() => {
         const fetchSalesData = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/sales/sales-data");
+                // const res = await axios.get("http://localhost:5000/api/sales/sales-data");
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/sales/sales-data`);
                 setSalesData(res.data);
             } catch (error) {
                 console.error("Error fetching sales data", error);

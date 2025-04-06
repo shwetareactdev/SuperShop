@@ -11,7 +11,8 @@ const Register = () => {
 
   const handleRegister = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/register', { username, email, password });
+      // const res = await axios.post('http://localhost:5000/register', { username, email, password });
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/register`, { username, email, password });
       setMessage('Registration successful!');
     } catch (err) {
       setMessage('Error during registration');

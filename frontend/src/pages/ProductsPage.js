@@ -16,7 +16,8 @@ const Products = () => {
     // ✅ API Call - Get All Products
     const fetchProducts = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/products");
+            // const res = await axios.get("http://localhost:5000/api/products");
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products`);
             setProducts(res.data);
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -35,7 +36,8 @@ const Products = () => {
     // ✅ Handle Save Button (Update API Call)
     const handleSaveEdit = async () => {
         try {
-            await axios.put(`http://localhost:5000/api/products/update/${editProduct._id}`, editProduct);
+            // await axios.put(`http://localhost:5000/api/products/update/${editProduct._id}`, editProduct);
+            await axios.put(`${process.env.REACT_APP_API_URL}/api/products/update/${editProduct._id}`, editProduct);
             setEditProduct(null);
             fetchProducts();
         } catch (error) {
@@ -47,7 +49,8 @@ const Products = () => {
     const handleDelete = async (id) => {
         if (window.confirm("Are you sure you want to delete this product?")) {
             try {
-                await axios.delete(`http://localhost:5000/api/products/delete/${id}`);
+                // await axios.delete(`http://localhost:5000/api/products/delete/${id}`);
+                await axios.delete(`${process.env.REACT_APP_API_URL}/api/products/delete/${id}`);
                 fetchProducts();
             } catch (error) {
                 console.error("Error deleting product:", error);
